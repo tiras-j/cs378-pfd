@@ -14,6 +14,15 @@ void PFD_print(ostream& w, const vector<int>& order){
 	}
 }
 
+void print_graph(const vector<vector<int> >& graph){
+	cout << endl << endl;
+	for(int i = 1; i < (int) graph.size(); ++i){
+		for(int j = 1; j < (int) graph[i].size(); ++j){
+			cout << graph[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
 // --------
 // PFD_eval
 // --------
@@ -27,16 +36,18 @@ vector<int> PFD_eval(vector<vector<int> >& graph) {
 			int acc = 0;
 			for(int j = 1; j < (int) graph[i].size(); ++j){
 				acc += graph[i][j]; // Counting outlinks
-				cout << "acc: " << acc << endl;
+				//cout << "acc: " << acc << endl;
 			}
-			if(acc){
+			if(acc == 0 && graph[i][0] == 0){
 				done = false;
+				graph[i][0] = 1;
 				free_list.push_back(i);
 				// We can't clear here or we might mess
 				// up the order later
 			}
 		}
 		
+		print_graph(graph);
 		sort(free_list.begin(), free_list.end());
 		// Now we need to clear the inlinks to each free_list node
 		for(int col : free_list){
@@ -48,6 +59,8 @@ vector<int> PFD_eval(vector<vector<int> >& graph) {
 			order.push_back(col);
 		}
 		free_list.clear();
+		
+		print_graph(graph);
 	}
 	return order;
 }	
