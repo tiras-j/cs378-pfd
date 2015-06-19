@@ -84,7 +84,7 @@ void populate(istream& r, vector<vector<int> >& graph){
 		}	
 	}
 	
-	cout << "populate exit" << endl;
+//	cout << "populate exit" << endl;
 }
 
 // ---------
