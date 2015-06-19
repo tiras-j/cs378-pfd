@@ -3,7 +3,9 @@
 #include <sstream>   // istringstream
 #include <string>    // string
 #include <algorithm> // sort
+#include <cstdint>   // uint8_t
 using namespace std;
+
 
 // ---------
 // PFD_print
@@ -12,12 +14,13 @@ void PFD_print(ostream& w, const vector<int>& order){
 	for( auto i = order.begin(); i != order.end(); ++i){
 		w << *i << " ";
 	}
+    w << endl;
 }
 
-void print_graph(const vector<vector<int> >& graph){
+void print_graph(const vector<vector<uint8_t> >& graph){
 	cout << endl << endl;
 	for(int i = 1; i < (int) graph.size(); ++i){
-		for(int j = 1; j < (int) graph[i].size(); ++j){
+		for(int j = 0; j < (int) graph[i].size(); ++j){
 			cout << graph[i][j] << " ";
 		}
 		cout << endl;
@@ -26,48 +29,42 @@ void print_graph(const vector<vector<int> >& graph){
 // --------
 // PFD_eval
 // --------
-vector<int> PFD_eval(vector<vector<int> >& graph) {
+vector<int> PFD_eval(vector<vector<uint8_t> >& graph) {
 	vector<int> order;
-	vector<int> free_list;
 	bool done = false;
 	while(!done){
 		done = true;
 		for(int i = 1; i < (int) graph.size(); ++i){
 			int acc = 0;
+            // If already deleted jump to next row.
+            if(graph[i][0])
+                continue;
+            // Check all outlinks
 			for(int j = 1; j < (int) graph[i].size(); ++j){
-				acc += graph[i][j]; // Counting outlinks
-				//cout << "acc: " << acc << endl;
+				acc += graph[i][j];
 			}
-			if(acc == 0 && graph[i][0] == 0){
+            // if no outlinks, we have no more dependency.
+			if(acc == 0){
 				done = false;
 				graph[i][0] = 1;
-				free_list.push_back(i);
-				// We can't clear here or we might mess
-				// up the order later
+                order.push_back(i);            
+			    for(int x = 1; x < (int) graph.size(); ++x){
+				    // walking down the column associated with the freed node.
+				    graph[x][i] = 0;
+		    	}
+                break;
 			}
 		}
-		
-		print_graph(graph);
-		sort(free_list.begin(), free_list.end());
-		// Now we need to clear the inlinks to each free_list node
-		for(int col : free_list){
-			for(int i = 1; i < (int) graph.size(); ++i){
-				// walking down the column associated with the freed node.
-				graph[i][col] = 0;
-			}
-			
-			order.push_back(col);
-		}
-		free_list.clear();
-		
-		print_graph(graph);
+	    #ifdef DEBUG	
+		    print_graph(graph);
+        #endif
 	}
 	return order;
 }	
 // --------
 // populate
 // --------
-void populate(istream& r, vector<vector<int> >& graph){
+void populate(istream& r, vector<vector<uint8_t> >& graph){
 	string s;
 	int node, num, dep, size, rules;
 	
@@ -84,7 +81,6 @@ void populate(istream& r, vector<vector<int> >& graph){
 		}	
 	}
 	
-//	cout << "populate exit" << endl;
 }
 
 // ---------
@@ -92,7 +88,7 @@ void populate(istream& r, vector<vector<int> >& graph){
 // ---------
 
 void PFD_solve (istream& r, ostream& w) {
-	vector<vector<int> > adjacency_matrix;
+	vector<vector<uint8_t> > adjacency_matrix;
 	populate(r, adjacency_matrix);
 	vector<int> order = PFD_eval(adjacency_matrix);
 	PFD_print(w, order);
