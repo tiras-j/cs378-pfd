@@ -78,10 +78,10 @@ Sphere:
 	rm -f SpherePFD.out
 	make SpherePFD
 	make SpherePFD.out
+	diff SpherePFD.out ./PFD-tests/ezo55-RunPFD.out
 
 SpherePFD: SpherePFD.c++
 	$(CXX) $(CXXFLAGS) SpherePFD.c++ -o SpherePFD
-	diff SpherePFD.out ./PFD-tests/ezo55-RunPFD.out
 
 SpherePFD.out: SpherePFD
 	rm -f SpherePFD.out
