@@ -1,9 +1,7 @@
 FILES :=                              \
+    .gitignore                        \
     .travis.yml                       \
-    PFD-tests/ezo55-RunPFD.in   \
-    PFD-tests/ezo55-RunPFD.out  \
-    PFD-tests/ezo55-TestPFD.c++ \
-    PFD-tests/ezo55-TestPFD.out \
+    makefile                      \
     PFD.c++                       \
     PFD.h                         \
     PFD.log                       \
@@ -11,6 +9,7 @@ FILES :=                              \
     RunPFD.c++                    \
     RunPFD.in                     \
     RunPFD.out                    \
+    SpherePFD.c++                 \
     TestPFD.c++                   \
     TestPFD.out
 
@@ -74,7 +73,7 @@ SpherePFD: SpherePFD.c++
 SpherePFD.out: SpherePFD
 	rm -f SpherePFD.out
 	./SpherePFD < RunPFD.in > SpherePFD.out
-	diff SpherePFD.out ./PFD-tests/ezo55-RunPFD.out
+	#diff SpherePFD.out ./PFD-tests/ezo55-RunPFD.out
 
 TestPFD: PFD.h PFD.c++ TestPFD.c++
 	$(CXX) $(COVFLAGS) $(CXXFLAGS) PFD.c++ TestPFD.c++ -o TestPFD $(LDFLAGS)
