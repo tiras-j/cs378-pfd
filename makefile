@@ -60,12 +60,24 @@ PFD.log:
 Doxyfile:
 	doxygen -g
 
+Run:
+	rm -f RunPFD
+	rm -f RunPFD.out
+	make RunPFD
+	make RunPFD.out
+
 RunPFD: PFD.h PFD.c++ RunPFD.c++
 	$(CXX) $(CXXFLAGS) PFD.c++ RunPFD.c++ -o RunPFD
 
 RunPFD.out: RunPFD
 	./RunPFD < RunPFD.in > RunPFD.out
 	diff RunPFD.out ./PFD-tests/ezo55-RunPFD.out
+
+Sphere:
+	rm -f SpherePFD
+	rm -f SpherePFD.out
+	make SpherePFD
+	make SpherePFD.out
 
 SpherePFD: SpherePFD.c++
 	$(CXX) $(CXXFLAGS) SpherePFD.c++ -o SpherePFD
@@ -74,6 +86,12 @@ SpherePFD.out: SpherePFD
 	rm -f SpherePFD.out
 	./SpherePFD < RunPFD.in > SpherePFD.out
 	#diff SpherePFD.out ./PFD-tests/ezo55-RunPFD.out
+
+Test:
+	rm -f TestPFD
+	rm -f TestPFD.out
+	make TestPFD
+	make TestPFD.out
 
 TestPFD: PFD.h PFD.c++ TestPFD.c++
 	$(CXX) $(COVFLAGS) $(CXXFLAGS) PFD.c++ TestPFD.c++ -o TestPFD $(LDFLAGS)
