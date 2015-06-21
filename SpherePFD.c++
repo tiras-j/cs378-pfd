@@ -1,12 +1,20 @@
-#include <vector>    // vector
-#include <iostream>  // istream/ostream
-#include <sstream>   // istringstream
-#include <string>    // string
-#include <algorithm> // sort
-#include <cstdint>   // uint8_t
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <utility>
+#include <list>
+#include <queue>
+#include <functional>
+
+#define TASK_INDEX(A) ((A) - 1)
 using namespace std;
+typedef struct {
+    int ID;
+    int dep_count;
+    list<int> succ;
+} NODE;
 
-
+typedef priority_queue<int, vector<int>, greater<int> > my_pq_t;
 // ---------
 // PFD_print
 // ---------
@@ -17,80 +25,67 @@ void PFD_print(ostream& w, const vector<int>& order){
     w << endl;
 }
 
-void print_graph(const vector<vector<uint8_t> >& graph){
-	cout << endl << endl;
-	for(int i = 1; i < (int) graph.size(); ++i){
-		for(int j = 0; j < (int) graph[i].size(); ++j){
-			cout << graph[i][j] << " ";
-		}
-		cout << endl;
-	}
-}
-// --------
-// PFD_eval
-// --------
-vector<int> PFD_eval(vector<vector<uint8_t> >& graph) {
-	vector<int> order;
-	bool done = false;
-	while(!done){
-		done = true;
-		for(int i = 1; i < (int) graph.size(); ++i){
-			int acc = 0;
-            // If already deleted jump to next row.
-            if(graph[i][0])
-                continue;
-            // Check all outlinks
-			for(int j = 1; j < (int) graph[i].size(); ++j){
-				acc += graph[i][j];
-			}
-            // if no outlinks, we have no more dependency.
-			if(acc == 0){
-				done = false;
-				graph[i][0] = 1;
-                order.push_back(i);            
-			    for(int x = 1; x < (int) graph.size(); ++x){
-				    // walking down the column associated with the freed node.
-				    graph[x][i] = 0;
-		    	}
-                break;
-			}
-		}
-	    #ifdef DEBUG	
-		    print_graph(graph);
-        #endif
-	}
-	return order;
-}	
 // --------
 // populate
 // --------
-void populate(istream& r, vector<vector<uint8_t> >& graph){
-	string s;
-	int node, num, dep, size, rules;
-	
-	r >> size >> rules;
-	getline(r,s); // Clear the line.
-	graph.resize(size + 1); // We'll use the ID as the index, hence 1 -> size + 1
-	for(int i = 0; i < size + 1; ++i){ graph[i].resize(size + 1, 0); }
-	
-	while(getline(r, s)){
-		istringstream sin(s);
-		sin >> node >> num;
-		while(sin >> dep){
-			graph[node][dep] = 1;
-		}	
-	}
-	
+void populate(istream& r, vector<NODE>& graph, my_pq_t& free_queue){
+    int size, rules, node, dep, count;
+    string s;
+    // Clear the first line
+    r >> size >> rules;
+    getline(r, s); // clean up the line
+
+    graph.resize(size);
+
+    while(getline(r,s)){
+        istringstream sin(s);
+        sin >> node >> count;
+        graph[TASK_INDEX(node)].ID = node;
+        graph[TASK_INDEX(node)].dep_count = count;
+        while(sin >> dep){
+            // Add node as a successor to each dep
+            graph[TASK_INDEX(dep)].succ.push_back(node);
+        }
+
+    }
+
+    // We have to run through once to setup free_list
+    for(int i = 0; i < size; ++i){
+        if(graph[i].ID != i+1){
+            graph[i].ID = i+1;
+            graph[i].dep_count = 0;
+            free_queue.push(i+1);
+        }
+    }
 }
 
+// --------
+// PFD_eval
+// --------
+vector<int> PFD_eval(vector<NODE>& graph, my_pq_t& free_queue){
+    vector<int> order;
+    while(!free_queue.empty()){
+        int nextID = free_queue.top();
+        free_queue.pop();
+        order.push_back(nextID);
+        for(int n : graph[TASK_INDEX(nextID)].succ){
+            if(!--graph[TASK_INDEX(n)].dep_count){
+                free_queue.push(n);
+            }
+        }
+    }
+
+    return order;
+}   
 // ---------
 // PFD_solve
 // ---------
 
 void PFD_solve (istream& r, ostream& w) {
-	vector<vector<uint8_t> > adjacency_matrix;
-	populate(r, adjacency_matrix);
-	vector<int> order = PFD_eval(adjacency_matrix);
+	vector<NODE> graph;
+    my_pq_t free_queue;
+	populate(r, graph, free_queue);
+	vector<int> order = PFD_eval(graph, free_queue);
 	PFD_print(w, order);
 }
 
