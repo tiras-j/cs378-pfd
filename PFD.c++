@@ -6,6 +6,9 @@
 #include <cstdint>   // uint8_t
 using namespace std;
 
+#include "PFD.h"
+
+using namespace std;
 
 // ---------
 // PFD_print
@@ -93,13 +96,3 @@ void PFD_solve (istream& r, ostream& w) {
 	vector<int> order = PFD_eval(adjacency_matrix);
 	PFD_print(w, order);
 }
-
-// ----
-// main
-// ----
-
-int main() {
-	PFD_solve (cin, cout);
-	return 0;
-}
-	
