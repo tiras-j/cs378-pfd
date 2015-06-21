@@ -87,7 +87,7 @@ SpherePFD.out: SpherePFD
 	rm -f SpherePFD.out
 	./SpherePFD < RunPFD.in > SpherePFD.out
 
-Test:
+Unit:
 	rm -f TestPFD
 	rm -f TestPFD.out
 	make TestPFD
