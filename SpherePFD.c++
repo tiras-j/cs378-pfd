@@ -51,7 +51,10 @@ void populate(istream& r, vector<NODE>& graph, my_pq_t& free_queue){
 
     // We have to run through once to setup free_list
     for(int i = 0; i < size; ++i){
-        if(graph[i].ID != i+1){
+        if(graph[i].ID == 0){
+            // Vectors initialize elements via copy constructors
+            // hence our structs will receieve recursive value initialization 
+            // to zero. Nice!
             graph[i].ID = i+1;
             graph[i].dep_count = 0;
             free_queue.push(i+1);
