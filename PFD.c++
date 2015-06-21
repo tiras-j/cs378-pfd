@@ -13,11 +13,14 @@ void PFD_print(ostream& w, const vector<int>& order){
 // populate
 // --------
 void populate(istream& r, vector<NODE>& graph, my_pq_t& free_queue){
+
     int size, rules, node, dep, count;
     string s;
     // Clear the first line
     r >> size >> rules;
     getline(r, s); // clean up the line
+    
+    assert(size >= 0);
 
     graph.resize(size);
 
