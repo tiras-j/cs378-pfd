@@ -3,7 +3,7 @@ sudo: required
 branches:
   only:
     - dev
-    - init
+    - master
 
 language: cpp
 
