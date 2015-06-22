@@ -1,0 +1,188 @@
+commit b3ee7ac587aee974a1e7347d8336ea2c606021cd
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Mon Jun 22 18:08:11 2015 -0500
+
+    Fix doxyfile
+
+commit 3dc10bc849e2cbb4addb10718c348a61ad9e7f15
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Mon Jun 22 17:58:33 2015 -0500
+
+    Remove unnecessary files.
+
+commit 852ef52aadd60cf6f9ea17296024f92ca83f1b5c
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Mon Jun 22 17:56:53 2015 -0500
+
+    Removing unnecessary binaries from repo.
+
+commit 970a6c425be18f73cdda7fc23c59e2915292398b
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Mon Jun 22 17:54:35 2015 -0500
+
+    Final rerun of Sphere and Test, update Make.
+
+commit 9d1272d9c950257c000877df2459dd34707fc412
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Mon Jun 22 17:41:40 2015 -0500
+
+    Final addition of asserts and comments to PFD.c++
+
+commit 2321772325a75d284e0a01094172147151f45d65
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Mon Jun 22 17:37:37 2015 -0500
+
+    Add erroneous lines to end of file
+
+commit 7c0d0769a2867f52ddc533fbe67b129de1384a7d
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Mon Jun 22 16:48:34 2015 -0500
+
+    Update acceptance test
+
+commit 9f734f6d3fa855958ae8f9f43c1ac24b5b8d6ae7
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sun Jun 21 22:55:18 2015 -0500
+
+    Extend input to 100 lines.
+
+commit e2c00f03eb78efaf5e50f47a5972ea3cc1b6d151
+Merge: 24e27d2 6ffd6e1
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Sun Jun 21 18:36:45 2015 -0500
+
+    Merge branch 'dev'
+    Bringing in dev to master
+
+commit 6ffd6e1c78a7e7891917e71bb86ac2693b2c6ab7
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Sun Jun 21 18:30:44 2015 -0500
+
+    Cleaned code and commented header file. Closes #16
+
+commit c82d3af7dc6baccdf339c4f28944ce24ebbefe6b
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Sun Jun 21 17:59:47 2015 -0500
+
+    Updates to PFD.c++/h to match new PQ solution. Also completed unit tests. Closes #20. Closes #4
+
+commit 24e27d25c59d9dc24bc7d218c32479d9e8045375
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sun Jun 21 17:26:23 2015 -0500
+
+    Generate Acceptance Test
+
+commit e845af632a92ca0800b51a4815697c1a0df7789d
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Sun Jun 21 17:25:59 2015 -0500
+
+    Small update to comparison to check nodes that have no dependencies
+
+commit c3d94fb6a9dd1bdb6ed8d778af95628f42828bf3
+Merge: 6183665 4ddae9a
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Sun Jun 21 16:39:40 2015 -0500
+
+    merge from master back into dev
+
+commit 4ddae9a304f3a6956242fe22cc45ffaec3ef8bd8
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sun Jun 21 16:21:11 2015 -0500
+
+    Update travis to test master branch
+
+commit 498b283d608b1d8b534236e0fe35bd9480ceb712
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sun Jun 21 16:19:02 2015 -0500
+
+    Update Sphere to utilize priority queue
+
+commit c455438971e6413bfd0fe0d08da5e923474b6431
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sun Jun 21 16:01:24 2015 -0500
+
+    Update TestPFD.
+
+commit 61836650a43f3f2d71e2be0c622f7f39ff3aa271
+Author: Josh Tiras <tiras.j@gmail.com>
+Date:   Sun Jun 21 13:34:25 2015 -0500
+
+    Created a priority queue solution... however I think I am misremembering the way Downing said to use it.
+
+commit 96ece07a1b25a6703231a3a85b84b1720fcea0c5
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sat Jun 20 15:10:50 2015 -0500
+
+    Update makefile. Relocated diff.
+
+commit 5f42c856cd4c6121919927cd070da47614bd1214
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sat Jun 20 15:02:41 2015 -0500
+
+    Update makefile. Relocated diff.
+
+commit adafc9aeb1c13287df5c150b646d3c0af5616168
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sat Jun 20 14:52:06 2015 -0500
+
+    Updated makeFile.
+
+commit 9ac550b767324452aaf41ebab82c6631b8dc8798
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Sat Jun 20 14:36:10 2015 -0500
+
+    Seperate SpherePFD into unique files. closes #18.
+
+commit 945bdb0ec1ab939a63e4e68a1f4646e40e0289d1
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Fri Jun 19 23:05:44 2015 -0500
+
+    Initialize Sphere file.
+
+commit 3a708448edc56e0af19996df487dfd8916ceab37
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Fri Jun 19 22:52:02 2015 -0500
+
+    Port over files from Collatz. close #17.
+
+commit 2b673709b773a6c60e72869eec4af76c20fed4e4
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Fri Jun 19 22:47:07 2015 -0500
+
+    Port over files from Collatz. close #17.
+
+commit ac4067dd23624588e4edfc30de2abdad5def3585
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Fri Jun 19 22:42:36 2015 -0500
+
+    Port over files from Collatz. close #17.
+
+commit c9ee94a7d087e39b5eebecc9b548ec3c3b66460a
+Author: tiras-j <joshua.tiras@utexas.edu>
+Date:   Thu Jun 18 19:15:40 2015 -0500
+
+    Fixed output node ordering issue. Closes #3
+
+commit ad8aa2f2d4d03c20ef5a1df59ee13a75c95df8ae
+Author: okruhlik <ezokruhlik@gmail.com>
+Date:   Thu Jun 18 19:08:36 2015 -0500
+
+    Add dev branch.
+
+commit 22e9d0c0f7fcc637eae2a01fd538b9535d6b1f6c
+Author: Josh Tiras <joshua.tiras@utexas.edu>
+Date:   Thu Jun 18 16:55:33 2015 -0500
+
+    Fixed issue with resolving matrix. Working solution now.
+
+commit 2b372aa925f507c937ffc29931bb98b16483f7ac
+Author: Josh Tiras <joshua.tiras@utexas.edu>
+Date:   Thu Jun 18 16:48:54 2015 -0500
+
+    First stab, not currently working. But close... using adjacency matrix
+
+commit dcdd76d35aa2f8bc42a61e9cf8c0d5579a316c8b
+Author: Josh Tiras <tiras-j@users.noreply.github.com>
+Date:   Thu Jun 18 16:47:00 2015 -0500
+
+    Initial commit
