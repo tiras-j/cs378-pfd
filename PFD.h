@@ -30,10 +30,10 @@ typedef priority_queue<int, vector<int>, greater<int> > my_pq_t;
 // ---------
 /**
  * Prints a vector to the output stream
- * @param ostream reference
- * @param int vector reference
+ * @param w an ostream reference
+ * @param order an int vector reference
  */
-void PFD_print(ostream&, const vector<int>&);
+void PFD_print(ostream& w, const vector<int>& order);
 
 // --------
 // PFD_eval
@@ -46,11 +46,11 @@ void PFD_print(ostream&, const vector<int>&);
  *      Walk through succ list of node and decrement dep_count
  *          if dep_count is zero add that node to PQ
  *      Continue until PQ is empty.
- * @param vector<NODE> reference
- * @param my_pq_t reference (typedef priority_queue...)
+ * @param graph vector<NODE> reference
+ * @param free_queue a my_pq_t reference (typedef priority_queue...)
  * @return vector of ints representing output
  */
-vector<int> PFD_eval(vector<NODE>&, my_pq_t&);
+vector<int> PFD_eval(vector<NODE>& graph, my_pq_t& free_queue);
 
 // --------
 // populate
@@ -62,19 +62,19 @@ vector<int> PFD_eval(vector<NODE>&, my_pq_t&);
  * of TASKIDs which depend on it, as well as the number of tasks it
  * depends on in NODE.dep_count. Priority queue contains all tasks which 
  * have no dependencies.
- * @param istream reference
- * @param vector<NODE> reference to be populated.
- * @param my_pq_t reference to be populated.
+ * @param r an istream reference
+ * @param graph a vector<NODE> reference to be populated.
+ * @param free_queue a my_pq_t reference to be populated.
  */
-void populate(istream&, vector<NODE>&, my_pq_t&);
+void populate(istream& r, vector<NODE>& graph, my_pq_t& free_queue);
 
 // ---------
 // PFD_solve
 // ---------
 /**
  * Solves the dependency problem via populate and eval and prints solution.
- * @param istream reference, input file read from here
- * @param ostream reference, solution output here
+ * @param r an istream reference, input file read from here
+ * @param w an ostream reference, solution output here
  */
-void PFD_solve (istream&, ostream&);
+void PFD_solve (istream& r, ostream& w);
 #endif // PFD_h

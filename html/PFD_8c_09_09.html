@@ -108,13 +108,13 @@ Functions</h2></td></tr>
           <td class="memname">vector&lt;int&gt; PFD_eval </td>
           <td>(</td>
           <td class="paramtype">vector&lt; <a class="el" href="structNODE.html">NODE</a> &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>graph</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="PFD_8h.html#a4c0f02bfefb086e7b498c53a43dddc42">my_pq_t</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>free_queue</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -126,8 +126,8 @@ Functions</h2></td></tr>
 <p>Evaluates the dependency graph using the priority queue to identify the next free node to add to the output order. Process: Get top of PQ and add to output vec Walk through succ list of node and decrement dep_count if dep_count is zero add that node to PQ Continue until PQ is empty. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vector&lt;NODE&gt;</td><td>reference </td></tr>
-    <tr><td class="paramname">my_pq_t</td><td>reference (typedef priority_queue...) </td></tr>
+    <tr><td class="paramname">graph</td><td>vector&lt;NODE&gt; reference </td></tr>
+    <tr><td class="paramname">free_queue</td><td>a my_pq_t reference (typedef priority_queue...) </td></tr>
   </table>
   </dd>
 </dl>
@@ -143,13 +143,13 @@ Functions</h2></td></tr>
           <td class="memname">void PFD_print </td>
           <td>(</td>
           <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -161,8 +161,8 @@ Functions</h2></td></tr>
 <p>Prints a vector to the output stream </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ostream</td><td>reference </td></tr>
-    <tr><td class="paramname">int</td><td>vector reference </td></tr>
+    <tr><td class="paramname">w</td><td>an ostream reference </td></tr>
+    <tr><td class="paramname">order</td><td>an int vector reference </td></tr>
   </table>
   </dd>
 </dl>
@@ -177,13 +177,13 @@ Functions</h2></td></tr>
           <td class="memname">void PFD_solve </td>
           <td>(</td>
           <td class="paramtype">istream &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>r</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -195,8 +195,8 @@ Functions</h2></td></tr>
 <p>Solves the dependency problem via populate and eval and prints solution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">istream</td><td>reference, input file read from here </td></tr>
-    <tr><td class="paramname">ostream</td><td>reference, solution output here </td></tr>
+    <tr><td class="paramname">r</td><td>an istream reference, input file read from here </td></tr>
+    <tr><td class="paramname">w</td><td>an ostream reference, solution output here </td></tr>
   </table>
   </dd>
 </dl>
@@ -211,19 +211,19 @@ Functions</h2></td></tr>
           <td class="memname">void populate </td>
           <td>(</td>
           <td class="paramtype">istream &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>r</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">vector&lt; <a class="el" href="structNODE.html">NODE</a> &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>graph</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="PFD_8h.html#a4c0f02bfefb086e7b498c53a43dddc42">my_pq_t</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>free_queue</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -235,9 +235,9 @@ Functions</h2></td></tr>
 <p>Populates the graph and priority queue with initial state based on the input file. Each <a class="el" href="structNODE.html">NODE</a> is indexed via it's TASKID to allow constant time access to tasks, and each contains a list of TASKIDs which depend on it, as well as the number of tasks it depends on in <a class="el" href="structNODE.html#a9a2bb058cf3c0c6854091cd377121715">NODE.dep_count</a>. Priority queue contains all tasks which have no dependencies. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">istream</td><td>reference </td></tr>
-    <tr><td class="paramname">vector&lt;NODE&gt;</td><td>reference to be populated. </td></tr>
-    <tr><td class="paramname">my_pq_t</td><td>reference to be populated. </td></tr>
+    <tr><td class="paramname">r</td><td>an istream reference </td></tr>
+    <tr><td class="paramname">graph</td><td>a vector&lt;NODE&gt; reference to be populated. </td></tr>
+    <tr><td class="paramname">free_queue</td><td>a my_pq_t reference to be populated. </td></tr>
   </table>
   </dd>
 </dl>
@@ -247,7 +247,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 22 2015 18:07:01 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 22 2015 18:15:17 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

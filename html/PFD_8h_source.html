@@ -114,36 +114,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// ---------</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// PFD_print</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// ---------</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="PFD_8h.html#ab114b8e49827c7e6508e4944c89468f7">PFD_print</a>(ostream&amp;, <span class="keyword">const</span> vector&lt;int&gt;&amp;);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="PFD_8h.html#ada82df26034f285759aea5f29f192bfa">PFD_print</a>(ostream&amp; w, <span class="keyword">const</span> vector&lt;int&gt;&amp; order);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// --------</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// PFD_eval</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// --------</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>vector&lt;int&gt; <a class="code" href="PFD_8h.html#a92a55c3b52aef87ed6e47507b8f03bbb">PFD_eval</a>(vector&lt;NODE&gt;&amp;, <a class="code" href="PFD_8h.html#a4c0f02bfefb086e7b498c53a43dddc42">my_pq_t</a>&amp;);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>vector&lt;int&gt; <a class="code" href="PFD_8h.html#aeab1afd8977512b46b7787afb7f9356b">PFD_eval</a>(vector&lt;NODE&gt;&amp; graph, <a class="code" href="PFD_8h.html#a4c0f02bfefb086e7b498c53a43dddc42">my_pq_t</a>&amp; free_queue);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// --------</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">// populate</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">// --------</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="PFD_8h.html#afe8410fb3825101fe5d7ac0f99a8fa9e">populate</a>(istream&amp;, vector&lt;NODE&gt;&amp;, <a class="code" href="PFD_8h.html#a4c0f02bfefb086e7b498c53a43dddc42">my_pq_t</a>&amp;);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="PFD_8h.html#a76caa4cf1f5cee7678f7d9aaa231125e">populate</a>(istream&amp; r, vector&lt;NODE&gt;&amp; graph, <a class="code" href="PFD_8h.html#a4c0f02bfefb086e7b498c53a43dddc42">my_pq_t</a>&amp; free_queue);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">// ---------</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">// PFD_solve</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">// ---------</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="PFD_8h.html#a6988c1d65211f8eb8dc061d72a91678b">PFD_solve</a> (istream&amp;, ostream&amp;);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="PFD_8h.html#ad1fb4f8285d98373eb99cc90453aa1df">PFD_solve</a> (istream&amp; r, ostream&amp; w);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif // PFD_h</span></div>
 <div class="ttc" id="structNODE_html"><div class="ttname"><a href="structNODE.html">NODE</a></div><div class="ttdef"><b>Definition:</b> PFD.h:20</div></div>
 <div class="ttc" id="structNODE_html_a9a2bb058cf3c0c6854091cd377121715"><div class="ttname"><a href="structNODE.html#a9a2bb058cf3c0c6854091cd377121715">NODE::dep_count</a></div><div class="ttdeci">int dep_count</div><div class="ttdef"><b>Definition:</b> PFD.h:22</div></div>
-<div class="ttc" id="PFD_8h_html_a6988c1d65211f8eb8dc061d72a91678b"><div class="ttname"><a href="PFD_8h.html#a6988c1d65211f8eb8dc061d72a91678b">PFD_solve</a></div><div class="ttdeci">void PFD_solve(istream &amp;, ostream &amp;)</div><div class="ttdef"><b>Definition:</b> PFD.c++:80</div></div>
+<div class="ttc" id="PFD_8h_html_ad1fb4f8285d98373eb99cc90453aa1df"><div class="ttname"><a href="PFD_8h.html#ad1fb4f8285d98373eb99cc90453aa1df">PFD_solve</a></div><div class="ttdeci">void PFD_solve(istream &amp;r, ostream &amp;w)</div><div class="ttdef"><b>Definition:</b> PFD.c++:80</div></div>
+<div class="ttc" id="PFD_8h_html_aeab1afd8977512b46b7787afb7f9356b"><div class="ttname"><a href="PFD_8h.html#aeab1afd8977512b46b7787afb7f9356b">PFD_eval</a></div><div class="ttdeci">vector&lt; int &gt; PFD_eval(vector&lt; NODE &gt; &amp;graph, my_pq_t &amp;free_queue)</div><div class="ttdef"><b>Definition:</b> PFD.c++:60</div></div>
 <div class="ttc" id="PFD_8h_html_a4c0f02bfefb086e7b498c53a43dddc42"><div class="ttname"><a href="PFD_8h.html#a4c0f02bfefb086e7b498c53a43dddc42">my_pq_t</a></div><div class="ttdeci">priority_queue&lt; int, vector&lt; int &gt;, greater&lt; int &gt; &gt; my_pq_t</div><div class="ttdef"><b>Definition:</b> PFD.h:26</div></div>
 <div class="ttc" id="structNODE_html_a1c08c3104a5e476cc50c2ce0248f8f25"><div class="ttname"><a href="structNODE.html#a1c08c3104a5e476cc50c2ce0248f8f25">NODE::ID</a></div><div class="ttdeci">int ID</div><div class="ttdef"><b>Definition:</b> PFD.h:21</div></div>
-<div class="ttc" id="PFD_8h_html_ab114b8e49827c7e6508e4944c89468f7"><div class="ttname"><a href="PFD_8h.html#ab114b8e49827c7e6508e4944c89468f7">PFD_print</a></div><div class="ttdeci">void PFD_print(ostream &amp;, const vector&lt; int &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> PFD.c++:5</div></div>
 <div class="ttc" id="structNODE_html_aceb503d28ad31943c561fc226ef52397"><div class="ttname"><a href="structNODE.html#aceb503d28ad31943c561fc226ef52397">NODE::succ</a></div><div class="ttdeci">list&lt; int &gt; succ</div><div class="ttdef"><b>Definition:</b> PFD.h:23</div></div>
-<div class="ttc" id="PFD_8h_html_a92a55c3b52aef87ed6e47507b8f03bbb"><div class="ttname"><a href="PFD_8h.html#a92a55c3b52aef87ed6e47507b8f03bbb">PFD_eval</a></div><div class="ttdeci">vector&lt; int &gt; PFD_eval(vector&lt; NODE &gt; &amp;, my_pq_t &amp;)</div><div class="ttdef"><b>Definition:</b> PFD.c++:60</div></div>
-<div class="ttc" id="PFD_8h_html_afe8410fb3825101fe5d7ac0f99a8fa9e"><div class="ttname"><a href="PFD_8h.html#afe8410fb3825101fe5d7ac0f99a8fa9e">populate</a></div><div class="ttdeci">void populate(istream &amp;, vector&lt; NODE &gt; &amp;, my_pq_t &amp;)</div><div class="ttdef"><b>Definition:</b> PFD.c++:15</div></div>
+<div class="ttc" id="PFD_8h_html_a76caa4cf1f5cee7678f7d9aaa231125e"><div class="ttname"><a href="PFD_8h.html#a76caa4cf1f5cee7678f7d9aaa231125e">populate</a></div><div class="ttdeci">void populate(istream &amp;r, vector&lt; NODE &gt; &amp;graph, my_pq_t &amp;free_queue)</div><div class="ttdef"><b>Definition:</b> PFD.c++:15</div></div>
+<div class="ttc" id="PFD_8h_html_ada82df26034f285759aea5f29f192bfa"><div class="ttname"><a href="PFD_8h.html#ada82df26034f285759aea5f29f192bfa">PFD_print</a></div><div class="ttdeci">void PFD_print(ostream &amp;w, const vector&lt; int &gt; &amp;order)</div><div class="ttdef"><b>Definition:</b> PFD.c++:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 22 2015 18:07:01 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 22 2015 18:15:17 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
