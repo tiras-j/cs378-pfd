@@ -65,7 +65,7 @@ Run:
 	rm -f RunPFD.out
 	make RunPFD
 	make RunPFD.out
-	diff RunPFD.out ./PFD-tests/ezo55-RunPFD.out
+	#diff RunPFD.out ./PFD-tests/ezo55-RunPFD.out
 
 RunPFD: PFD.h PFD.c++ RunPFD.c++
 	$(CXX) $(CXXFLAGS) PFD.c++ RunPFD.c++ -o RunPFD
@@ -78,7 +78,7 @@ Sphere:
 	rm -f SpherePFD.out
 	make SpherePFD
 	make SpherePFD.out
-	diff SpherePFD.out ./PFD-tests/ezo55-RunPFD.out
+	#diff SpherePFD.out ./PFD-tests/ezo55-RunPFD.out
 
 SpherePFD: SpherePFD.c++
 	$(CXX) $(CXXFLAGS) SpherePFD.c++ -o SpherePFD
