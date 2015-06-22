@@ -13,18 +13,19 @@ void PFD_print(ostream& w, const vector<int>& order){
 // populate
 // --------
 void populate(istream& r, vector<NODE>& graph, my_pq_t& free_queue){
-
-    int size, rules, node, dep, count;
+    // Initialize to zero to avoid issues with empty input.
+    int size = 0, rules = 0, node = 0, dep = 0, count = 0, lcount = 0;
     string s;
     // Clear the first line
     r >> size >> rules;
     getline(r, s); // clean up the line
-    
     assert(size >= 0);
 
     graph.resize(size);
-
-    while(getline(r,s)){
+    // We only iterate across the number of lines given by rules count
+    // NOT until EOF, that is against spec. 
+    while(lcount < rules){
+        getline(r, s);
         istringstream sin(s);
         sin >> node >> count;
         graph[TASK_INDEX(node)].ID = node;
@@ -33,8 +34,11 @@ void populate(istream& r, vector<NODE>& graph, my_pq_t& free_queue){
             // Add node as a successor to each dep
             graph[TASK_INDEX(dep)].succ.push_back(node);
         }
+        ++lcount;
 
     }
+
+    assert(graph.size() == (unsigned int)size);
 
     // We have to run through once to setup free_list
     for(int i = 0; i < size; ++i){
@@ -55,6 +59,7 @@ void populate(istream& r, vector<NODE>& graph, my_pq_t& free_queue){
 // --------
 vector<int> PFD_eval(vector<NODE>& graph, my_pq_t& free_queue){
     vector<int> order;
+
     while(!free_queue.empty()){
         int nextID = free_queue.top();
         free_queue.pop();
